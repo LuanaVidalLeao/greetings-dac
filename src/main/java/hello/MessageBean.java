@@ -9,6 +9,7 @@ package hello;
 
 import java.beans.*;
 import java.io.Serializable;
+import java.time.LocalTime;  
 
 /**
  *
@@ -31,18 +32,15 @@ public class MessageBean implements Serializable {
     public void setLang(String value) {
         lang = value;
     }
+    
     public String getMsg() {
-        switch (this.lang){
-            case "pt":
-                return "Alô";
-            case "en":
-                return "Hello";
-            case "de":
-                return "Hallo";
-            case "fr":
-                return "Bonjour";
+        LocalTime time = LocalTime.now();
+        if (time.getHour() >= 5 && time.getHour() < 12) {
+            return getAuxMsg();
+        } else if (time.getHour() >= 12 && time.getHour() < 18) {
+            return getAuxMsg2();
         }
-        return "";
+        return getAuxMsg3();
     }
     public String getMsg2() {
         switch (this.lang){
@@ -54,6 +52,45 @@ public class MessageBean implements Serializable {
                 return "Erstellt von";
             case "fr":
                 return "Créé par";
+        }
+        return "";
+    }
+    public String getAuxMsg() {
+        switch (this.lang){
+            case "pt":
+                return "Bom dia";
+            case "en":
+                return "Good morning";
+            case "de":
+                return "Guten morgen";
+            case "fr":
+                return "Bonjour";
+        }
+        return "";
+    }
+    public String getAuxMsg2() {
+        switch (this.lang){
+            case "pt":
+                return "Boa tarde";
+            case "en":
+                return "Good afternoon";
+            case "de":
+                return "Guten nachmittag";
+            case "fr":
+                return "Bon après-midi";
+        }
+        return "";
+    }
+    public String getAuxMsg3() {
+        switch (this.lang){
+            case "pt":
+                return "Boa noite";
+            case "en":
+                return "Good evening";
+            case "de":
+                return "Guten abend";
+            case "fr":
+                return "Bonsoir";
         }
         return "";
     }
