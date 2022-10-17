@@ -23,7 +23,7 @@
         <jsp:getProperty name="myBean" property="msg"/>, <%=request.getParameter("nome")%>!</h2>
         <jsp:getProperty name="myBean" property="msg2"/> <jsp:getProperty name="myBean" property="aut"/>
         <footer>
-            Footer
+            Universidade Federal Fluminense - Versão 0.1
           </footer>
     </body>
 </html>
